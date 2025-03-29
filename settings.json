@@ -1,0 +1,24 @@
+{
+  "workbench.startupEditor": "none",
+
+  "editor.tabSize": 2,
+  "files.insertFinalNewline": true,
+
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingQuotes": "never",
+
+  "editor.fontFamily": "Ubuntu Mono",
+  "editor.fontSize": 22,
+  "terminal.integrated.fontSize": 22,
+
+  "editor.glyphMargin": false,
+  "editor.guides.indentation": false,
+
+  "workbench.activityBar.location": "hidden",
+  "editor.minimap.enabled": false,
+  "extensions.ignoreRecommendations": true,
+
+  "workbench.editor.restoreViewState": false,
+  "terminal.integrated.enableMultiLinePasteWarning": "never"
+}

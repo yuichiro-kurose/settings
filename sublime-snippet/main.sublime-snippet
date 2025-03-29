@@ -1,0 +1,17 @@
+<snippet>
+  <content><![CDATA[
+// author: Yuichiro Kurose
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  $0
+  return 0;
+}
+]]></content>
+  <tabTrigger>m</tabTrigger>
+  <scope>source.c++</scope>
+</snippet>

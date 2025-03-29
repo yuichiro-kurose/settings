@@ -1,0 +1,7 @@
+<snippet>
+  <content><![CDATA[
+const int mod = 998244353;
+]]></content>
+  <tabTrigger>mod2</tabTrigger>
+  <scope>source.c++</scope>
+</snippet>

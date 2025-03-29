@@ -1,0 +1,13 @@
+<snippet>
+  <content><![CDATA[
+for (int i = 0; i < n; i++) {
+  if (i > 0) {
+    cout << ' ';
+  }
+  cout << a[i];
+}
+cout << endl;
+]]></content>
+  <tabTrigger>PRINT_V</tabTrigger>
+  <scope>source.c++</scope>
+</snippet>

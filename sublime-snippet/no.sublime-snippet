@@ -1,0 +1,7 @@
+<snippet>
+  <content><![CDATA[
+cout << "No" << endl;
+]]></content>
+  <tabTrigger>no</tabTrigger>
+  <scope>source.c++</scope>
+</snippet>

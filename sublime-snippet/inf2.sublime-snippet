@@ -1,0 +1,7 @@
+<snippet>
+  <content><![CDATA[
+const long long inf = LLONG_MAX / 2;
+]]></content>
+  <tabTrigger>inf2</tabTrigger>
+  <scope>source.c++</scope>
+</snippet>
