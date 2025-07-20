@@ -1,0 +1,35 @@
+{
+  // --- Editor Settings ---
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.fontFamily": "JetBrains Mono, monospace",
+  "editor.fontLigatures": false,
+  "editor.fontSize": 22,
+  "editor.guides.indentation": false,
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingQuotes": "never",
+  "editor.minimap.enabled": false,
+
+  // --- Files Settings ---
+  "files.insertFinalNewline": true,
+
+  // --- Terminal Settings ---
+  "terminal.integrated.fontSize": 18,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+
+  // --- Window Settings ---
+  "window.titleBarStyle": "native",
+  "window.customTitleBarVisibility": "never",
+  "window.autoDetectColorScheme": true,
+  "window.menuBarVisibility": "toggle",
+  "workbench.startupEditor": "none",
+
+  // --- Workbench Settings ---
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.preferredDarkColorTheme": "GitHub Dark Default",
+  "workbench.activityBar.location": "hidden",
+
+  // --- Extensions Settings ---
+  "extensions.ignoreRecommendations": true
+}

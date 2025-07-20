@@ -1,0 +1,395 @@
+{
+  "main": {
+    "prefix": "main",
+    "body": [
+      "// author: Yuichiro Kurose",
+      "",
+      "#include <bits/stdc++.h>",
+      "using namespace std;",
+      "",
+      "int main() {",
+      "  ios::sync_with_stdio(false);",
+      "  cin.tie(nullptr);",
+      "  $0",
+      "  return 0;",
+      "}"
+    ],
+    "description": "main function"
+  },
+  "yes": {
+    "prefix": "yes",
+    "body": [
+      "cout << \"Yes\" << endl;"
+    ],
+    "description": "Print Yes"
+  },
+  "no": {
+    "prefix": "no",
+    "body": [
+      "cout << \"No\" << endl;"
+    ],
+    "description": "Print No"
+  },
+  "inf1": {
+    "prefix": "inf1",
+    "body": [
+      "const int inf = INT_MAX / 2;"
+    ],
+    "description": "Integer infinity"
+  },
+  "inf2": {
+    "prefix": "inf2",
+    "body": [
+      "const long long inf = LLONG_MAX / 2;"
+    ],
+    "description": "Long long infinity"
+  },
+  "mod1": {
+    "prefix": "mod1",
+    "body": [
+      "const int mod = 1000000007;"
+    ],
+    "description": "Modulo 1000000007"
+  },
+  "mod2": {
+    "prefix": "mod2",
+    "body": [
+      "const int mod = 998244353;"
+    ],
+    "description": "Modulo 998244353"
+  },
+  "d4": {
+    "prefix": "d4",
+    "body": [
+      "const vector<int> dx = {0, -1, 0, 1};",
+      "const vector<int> dy = {1, 0, -1, 0};"
+    ],
+    "description": "4-directional movement vectors"
+  },
+  "d8": {
+    "prefix": "d8",
+    "body": [
+      "const vector<int> dx = {0, -1, -1, -1, 0, 1, 1, 1};",
+      "const vector<int> dy = {1, 1, 0, -1, -1, -1, 0, 1};"
+    ],
+    "description": "8-directional movement vectors"
+  },
+  "dfs": {
+    "prefix": "dfs",
+    "body": [
+      "auto dfs = [&](auto dfs, int u) -> void {",
+      "  vis[u] = true;",
+      "  for (int v : g[u]) {",
+      "    if (vis[v]) {",
+      "      continue;",
+      "    }",
+      "    dfs(dfs, v);",
+      "  }",
+      "};"
+    ],
+    "description": "Depth First Search (DFS) template"
+  },
+  "bfs1": {
+    "prefix": "bfs1",
+    "body": [
+      "auto bfs = [&]() -> vector<int> {",
+      "  vector<int> dist(n, -1);",
+      "  queue<int> que;",
+      "  dist[0] = 0;",
+      "  que.push(0);",
+      "  while (!que.empty()) {",
+      "    int u = que.front();",
+      "    que.pop();",
+      "    for (int v : g[u]) {",
+      "      if (dist[v] == -1) {",
+      "        dist[v] = dist[u] + 1;",
+      "        que.push(v);",
+      "      }",
+      "    }",
+      "  }",
+      "  return dist;",
+      "};"
+    ],
+    "description": "Breadth First Search (BFS) template (single source, node-based)"
+  },
+  "bfs2": {
+    "prefix": "bfs2",
+    "body": [
+      "auto bfs = [&]() -> vector<vector<int>> {",
+      "  vector<vector<int>> dist(h, vector<int>(w, -1));",
+      "  queue<pair<int, int>> que;",
+      "  dist[0][0] = 0;",
+      "  que.push(make_pair(0, 0));",
+      "  while (!que.empty()) {",
+      "    auto p = que.front();",
+      "    que.pop();",
+      "    int x = p.first, y = p.second;",
+      "    for (int d = 0; d < 4; d++) {",
+      "      int nx = x + dx[d], ny = y + dy[d];",
+      "      if (nx < 0 || nx >= h || ny < 0 || ny >= w) {",
+      "        continue;",
+      "      }",
+      "      if (s[nx][ny] == '#') {",
+      "        continue;",
+      "      }",
+      "      if (dist[nx][ny] != -1) {",
+      "        continue;",
+      "      }",
+      "      dist[nx][ny] = dist[x][y] + 1;",
+      "      que.push(make_pair(nx, ny));",
+      "    }",
+      "  }",
+      "  return dist;",
+      "};"
+    ],
+    "description": "Breadth First Search (BFS) template (grid-based)"
+  },
+  "dijkstra": {
+    "prefix": "dijkstra",
+    "body": [
+      "auto dijkstra = [&]() -> vector<int> {",
+      "  vector<int> dist(n, inf);",
+      "  priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> que;",
+      "  dist[start] = 0;",
+      "  que.push(make_pair(0, start));",
+      "  while (!que.empty()) {",
+      "    pair<int, int> p = que.top();",
+      "    que.pop();",
+      "    int u = p.second;",
+      "    if (dist[u] < p.first) {",
+      "      continue;",
+      "    }",
+      "    for (auto [v, w] : g[u]) {",
+      "      if (dist[v] > dist[u] + w) {",
+      "        dist[v] = dist[u] + w;",
+      "        que.push(make_pair(dist[v], v));",
+      "      }",
+      "    }",
+      "  }",
+      "  return dist;",
+      "};"
+    ],
+    "description": "Dijkstra's algorithm template"
+  },
+  "UnionFind": {
+    "prefix": "UnionFind",
+    "body": [
+      "class UnionFind {",
+      "public:",
+      "  vector<int> par;",
+      "  vector<int> siz;",
+      "  UnionFind(int n) {",
+      "    par = vector<int>(n, -1);",
+      "    siz = vector<int>(n, 1);",
+      "  }",
+      "  int root(int x) {",
+      "    if (par[x] < 0) {",
+      "      return x;",
+      "    }",
+      "    return par[x] = root(par[x]);",
+      "  }",
+      "  void unite(int u, int v) {",
+      "    int root_u = root(u);",
+      "    int root_v = root(v);",
+      "    if (root_u == root_v) {",
+      "      return;",
+      "    }",
+      "    if (siz[root_u] < siz[root_v]) {",
+      "      par[root_u] = root_v;",
+      "      siz[root_v] += siz[root_u];",
+      "    } else {",
+      "      par[root_v] = root_u;",
+      "      siz[root_u] += siz[root_v];",
+      "    }",
+      "  }",
+      "  bool same(int u, int v) {",
+      "    if (root(u) == root(v)) {",
+      "      return true;",
+      "    }",
+      "    return false;",
+      "  }",
+      "};"
+    ],
+    "description": "Union-Find data structure"
+  },
+  "SegmentTree": {
+    "prefix": "SegmentTree",
+    "body": [
+      "class SegmentTree {",
+      "private:",
+      "  int n;",
+      "  vector<int> node;",
+      "public:",
+      "  SegmentTree(vector<int> v) {",
+      "    int sz = v.size();",
+      "    n = 1;",
+      "    while (n < sz) {",
+      "      n *= 2;",
+      "    }",
+      "    node.resize(2 * n - 1, inf);",
+      "    for (int i = 0; i < sz; i++) {",
+      "      node[i + n - 1] = v[i];",
+      "    }",
+      "    for (int i = n - 2; i >= 0; i--) {",
+      "      node[i] = min(node[i * 2 + 1], node[i * 2 + 2]);",
+      "    }",
+      "  }",
+      "  void update(int k, int x) {",
+      "    k += (n - 1);",
+      "    node[k] = x;",
+      "    while (k > 0) {",
+      "      k = (k - 1) / 2;",
+      "      node[k] = min(node[k * 2 + 1], node[k * 2 + 2]);",
+      "    }",
+      "  }",
+      "  int find(int a, int b, int k = 0, int l = 0, int r = -1) {",
+      "    if (r < 0) {",
+      "      r = n;",
+      "    }",
+      "    if (b <= l || r <= a) {",
+      "      return inf;",
+      "    }",
+      "    if (a <= l && r <= b) {",
+      "      return node[k];",
+      "    }",
+      "    int vl = find(a, b, k * 2 + 1, l, (l + r) / 2);",
+      "    int vr = find(a, b, k * 2 + 2, (l + r) / 2, r);",
+      "    return min(vl, vr);",
+      "  }",
+      "};"
+    ],
+    "description": "Segment Tree data structure"
+  },
+  "LazySegmentTree": {
+    "prefix": "LazySegmentTree",
+    "body": [
+      "class LazySegmentTree {",
+      "private:",
+      "  int n;",
+      "  vector<int> node, lazy;",
+      "  vector<bool> lazy_flag;",
+      "public:",
+      "  LazySegmentTree(vector<int> v) {",
+      "    int sz = v.size();",
+      "    n = 1;",
+      "    while (n < sz) {",
+      "      n *= 2;",
+      "    }",
+      "    node.resize(2 * n - 1);",
+      "    lazy.resize(2 * n - 1, inf);",
+      "    lazy_flag.resize(2 * n - 1, false);",
+      "    for (int i = 0; i < sz; i++) {",
+      "      node[i + n - 1] = v[i];",
+      "    }",
+      "    for (int i = n - 2; i >= 0; i--) {",
+      "      node[i] = min(node[i * 2 + 1], node[i * 2 + 2]);",
+      "    }",
+      "  }",
+      "  void LazyEvaluate(int k, int l, int r) {",
+      "    if (lazy_flag[k]) {",
+      "      node[k] = lazy[k];",
+      "      if (r - l > 1) {",
+      "        lazy[k * 2 + 1] = lazy[k * 2 + 2] = lazy[k];",
+      "        lazy_flag[k * 2 + 1] = lazy_flag[k * 2 + 2] = true;",
+      "      }",
+      "      lazy_flag[k] = false;",
+      "    }",
+      "  }",
+      "  void update(int a, int b, int x, int k = 0, int l = 0, int r = -1) {",
+      "    if (r < 0) {",
+      "      r = n;",
+      "    }",
+      "    LazyEvaluate(k, l, r);",
+      "    if (b <= l || r <= a) {",
+      "      return;",
+      "    }",
+      "    if (a <= l && r <= b) {",
+      "      lazy[k] = x;",
+      "      lazy_flag[k] = true;",
+      "      LazyEvaluate(k, l, r);",
+      "    } else {",
+      "      update(a, b, x, k * 2 + 1, l, (l + r) / 2);",
+      "      update(a, b, x, k * 2 + 2, (l + r) / 2, r);",
+      "      node[k] = min(node[k * 2 + 1], node[k * 2 + 2]);",
+      "    }",
+      "  }",
+      "  int find(int a, int b, int k = 0, int l = 0, int r = -1) {",
+      "    if (r < 0) {",
+      "      r = n;",
+      "    }",
+      "    LazyEvaluate(k, l, r);",
+      "    if (b <= l || r <= a) {",
+      "      return inf;",
+      "    }",
+      "    if (a <= l && r <= b) {",
+      "      return node[k];",
+      "    }",
+      "    int vl = find(a, b, k * 2 + 1, l, (l + r) / 2);",
+      "    int vr = find(a, b, k * 2 + 2, (l + r) / 2, r);",
+      "    return min(vl, vr);",
+      "  }",
+      "};"
+    ],
+    "description": "Lazy Segment Tree data structure"
+  },
+  "Pow": {
+    "prefix": "Pow",
+    "body": [
+      "long long Pow(long long a, long long b) {",
+      "  long long ret = 1;",
+      "  while (b > 0) {",
+      "    if (b & 1) {",
+      "      ret = ret * a % mod;",
+      "    }",
+      "    a = a * a % mod;",
+      "    b >>= 1;",
+      "  }",
+      "  return ret;",
+      "}"
+    ],
+    "description": "Modular Exponentiation (a^b % mod)"
+  },
+  "C": {
+    "prefix": "C",
+    "body": [
+      "long long C(int n, int r) {",
+      "  long long a = 1, b = 1;",
+      "  for (int i = 1; i <= n; i++) {",
+      "    a = (a * i) % mod;",
+      "  }",
+      "  for (int i = 1; i <= r; i++) {",
+      "    b = (b * i) % mod;",
+      "  }",
+      "  for (int i = 1; i <= n - r; i++) {",
+      "    b = (b * i) % mod;",
+      "  }",
+      "  return a * Pow(b, mod - 2) % mod;",
+      "}"
+    ],
+    "description": "Modular combination (nCr % mod)"
+  },
+  "Manachar": {
+    "prefix": "Manachar",
+    "body": [
+      "vector<int> Manachar(string s) {",
+      "  vector<int> r(s.size());",
+      "  int i = 0, j = 0;",
+      "  while (i < s.size()) {",
+      "    while (i - j >= 0 && i + j < s.size() && s[i - j] == s[i + j]) {",
+      "      j++;",
+      "    }",
+      "    r[i] = j;",
+      "    int k = 1;",
+      "    while (i - k >= 0 && k + r[i - k] < j) {",
+      "      r[i + k] = r[i - k];",
+      "      k++;",
+      "    }",
+      "    i += k;",
+      "    j -= k;",
+      "  }",
+      "  return r;",
+      "}"
+    ],
+    "description": "Manacher's algorithm for longest palindromic substring"
+  }
+}
