@@ -6,7 +6,7 @@
 
 ## Wi-Fi 接続
 
-Wi-Fi に接続するには、以下のコマンドを実行します。
+以下を実行.
 
 ```bash
 iwctl
@@ -15,20 +15,30 @@ station device get-networks
 station device connect SSID
 ```
 
-通常、`device` は `wlan0` です。
+通常、`device` は `wlan0` だ.
+
+-----
+
+## Arch Linux のインストール
+
+以下を実行.
+
+```bash
+archinstall
+```
 
 -----
 
 ## GNOME のインストール
 
-GNOME デスクトップ環境をインストールするには、以下のコマンドを実行します。
+以下を実行.
 
 ```bash
 pacman -S gnome gnome-tweaks gnome-shell-extensions gdm --needed
 systemctl enable gdm.service
 ```
 
-インストール後、システムを再起動します。
+インストール後、システムを再起動する.
 
 ```bash
 reboot

@@ -4,7 +4,7 @@
 
 -----
 
-以下を順に実行してください：
+以下を実行.
 
 ```bash
 sudo pacman -S --needed git base-devel
